@@ -48,6 +48,7 @@ app.get('/', (req, res) => {
   res.send('READY FOR UPLOADING');
 });
 
+app.post('/pizza', (req, res) => res.status(200).json({ "pizza": "🍕" }));
 // File Upload Route
 app.post('/upload', upload.single('file'), async (req, res) => {
   const file = req.file;
