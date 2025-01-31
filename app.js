@@ -6,6 +6,8 @@ const fs = require('fs');
 const { Dropbox } = require('dropbox');
 const { Server } = require('socket.io');
 const http = require('http');
+const dotenv = require('dotenv');
+dotenv.config();
 
 // Initialize Dropbox
 const dropbox = new Dropbox({
@@ -95,4 +97,4 @@ io.on('connect', (socket) => {
 });
 
 // Start Server
-server.listen(3000, () => console.log("RUNNING ON PORT 3000"));
+server.listen(process.env.PORT, () => console.log(`RUNNING ON PORT ${process.env.PORT}`));
